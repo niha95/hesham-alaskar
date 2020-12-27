@@ -1,0 +1,41 @@
+<?php
+
+return[
+
+
+    'users'                     => 'users',
+    'add_new'                   => 'add new',
+    'user'                      => 'user',
+    'email'                     =>'Email',
+    'name'                      =>'name',
+    'password'                  =>'password',
+    'user_type'                 => 'user type',
+    'admin'                     => 'admni',
+    'choose'                    => 'choose',
+    'save'                      => 'save',
+    'data'                      => 'data',
+    'password_confirmation'     => 'password confirmation',
+    'type'                      => 'type',
+    'control'                   => 'controle',
+    'dashboard'                 => 'dashboard',
+    'projects'                  => 'projects',
+    'url'                       => 'url',
+    'desc'                      => 'description',
+    'project_image'             => 'project image',
+    'socials'                  => 'social media',
+    'fb'                       => 'facebook',
+    'twitter'                  => 'twitter',
+    'instagram'                => 'instagram',
+    'mail'                     => 'mail',
+    'misc'                     => 'site information ',
+    'sitename'                     => ' site name',
+    'about'                     => 'about ',
+    'siteword'                     => 'manager word  ',
+    'vision'                     => 'vision ',
+    'address'                     => 'address ',
+    'googlemap'                     => ' google map ',
+    'links'                     => 'links ',
+    'video'                     => ' video ',
+    'feedback'                  => 'customer feedback',
+
+];
