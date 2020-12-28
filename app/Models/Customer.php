@@ -14,7 +14,7 @@ class Customer extends Model implements TranslatableContract
     protected $fillable = ['top'];
     public function image()
     {
-        return $this->morphOne(Image::class, 'imageable');
+        return $this->morphOne('App\Models\Image', 'imageable');
     }
 
 }

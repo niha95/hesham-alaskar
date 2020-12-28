@@ -14,7 +14,7 @@
                     <!-- Logo -->
                     <div class="site-logo">
                         <!-- Link -->
-                        <a href="index.html">
+                        <a href="{{ route('site.home') }}">
                             <!-- Logo Image -->
                             <img src="{{asset('site/assets/images/footer-logo.png')}}" alt="Logo">
 
@@ -26,8 +26,33 @@
                     <div class="clearfix"></div>
 
                     <!-- Paragraph -->
-                    <p>{{ $misc->about_locale }}</p>
+                    <p>{{ $misc->site_word }}</p>
 
+
+                </div>
+                <!-- End widget -->
+
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3" >
+
+                <!-- Widget -->
+                <div class="widget">
+
+                    <!-- H3 heading -->
+                    <h3>@lang('general.lastblog')</h3>
+
+                    <!-- news -->
+                    <ul class="widget-news">
+                        @foreach($blog as $blog)
+                        <li>
+                            <a href="#">
+                                <figure><img src="{{ asset('site/assets/images/news-1.png') }}" alt=""></figure>
+                                <p>{{ $blog->title }}</p>
+                                <span>{{ $blog->description }}</span>
+                            </a>
+                        </li>
+                        @endforeach
+                    </ul>
 
                 </div>
                 <!-- End widget -->
@@ -39,15 +64,13 @@
                 <div class="widget">
 
                     <!-- H3 heading -->
-                    <h3>Quick Links</h3>
+                    <h3>@lang('general.linksw')</h3>
 
                     <!-- Links -->
                     <ul>
-                        <li><a href="#">Home - Law Firm</a></li>
-                        <li><a href="#">About us</a></li>
-                        <li><a href="#">Our Services</a></li>
-                        <li><a href="#">Recent Case Studies</a></li>
-                        <li><a href="#">Why Choose us?</a></li>
+                        <li><a href="#">@lang('nav.home')</a></li>
+                        <li><a href="#">@lang('nav.about')</a></li>
+                        <li><a href="#">@lang('nav.service')</a></li>
                         <li><a href="{{ $misc->links }}">{{ $misc->links }} </a></li>
                     </ul>
 
@@ -74,7 +97,7 @@
 
                 <!-- Copyright -->
                 <div class="site-copyright">
-                    © 2016 Made by <a href="http://www.deltatiech.com/" target="_blank">Delta</a>
+                    © 2020 Made by <a href="http://www.deltatiech.com/" target="_blank">Delta</a>
                 </div>
 
             </div>

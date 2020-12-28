@@ -6,20 +6,29 @@
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
         <meta name="description" content="One Page Corporate HTML Template">
         <meta name="author" content="">
-        <link rel="icon" href="images/favicon.ico">
+        <link rel="icon" href="{{ asset('site/assets/images/favicon.ico') }}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
         <!-- Title -->
-        <title>VAKIL:: Lawyers Attorneys and Law Firm HTML Template</title>
+        <title>{{ $misc->sitename }}</title>
 
         <!-- Necessary CSS Files -->
-        <link href="{{asset('site/assets/css/bootstrap.min.css')}}" rel="stylesheet">            									<!-- Bootstrap CSS Only GRID -->
+
+       <link href="{{asset('site/assets/css/bootstrap.min.css')}}" rel="stylesheet">            									<!-- Bootstrap CSS Only GRID -->
+       <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Almarai&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Prata" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
         <link rel="stylesheet" href="{{asset('site/assets/css/google-font.css')}}">              									<!-- Google Font -->
         <link rel="stylesheet" href="{{asset('site/assets/css/font-awesome.min.css')}}">         									<!-- Font Awesome Icons -->
         <link rel="stylesheet" href="{{asset('site/assets/css/swiper.min.css')}}">               									<!-- Swiper slider -->
         <link rel="stylesheet" href="{{asset('site/assets/css/jquery.mb.YTPlayer.min.css')}}">   									<!-- Video background -->
-        <link rel="stylesheet" href="{{asset('site/assets/css/template.css')}}">                 									<!-- Template CSS -->
+        <link rel="stylesheet" href="{{asset('site/assets/css/template.css')}}">
+        @if(app()->getLocale() == 'ar')
+        <link rel="stylesheet" href="{{ asset('site/assets/css/bootstrap-rtl.css') }}">
+        <link rel="stylesheet" href="{{asset('site/assets/css/temp-rtl.css')}}">
+@endif
+             									<!-- Template CSS -->
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

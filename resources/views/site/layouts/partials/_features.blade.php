@@ -27,11 +27,11 @@
                                         </figure>
 
                                         <!-- H3 heading -->
-                                        <h3>$misc->phone</h3>
+                                        <h3>{{ $misc->phone }}</h3>
 
                                         <!-- Paragraph -->
                                         <p>
-                                            Get experts advices
+                                            @lang('general.expert')
                                         </p>
 
 
@@ -50,12 +50,17 @@
                                         </figure>
 
                                         <!-- H3 heading -->
-                                        <h3>Join Our clients</h3>
+                                        <h3>@lang('general.joinclient')</h3>
+                                        <div class="site-social-icons">
+                                            <a target="_blank" href="{{$social->fb}}"><i class="fa fa-facebook"></i></a>
+                                            <a target="_blank" href="{{$social->twitter}}"><i class="fa fa-twitter"></i></a>
+                                            <a target="_blank" href="{{$social->instagram}}"><i class="fa fa-instagram"></i></a>
 
+                                        </div>
                                         <!-- Paragraph -->
-                                        <p>
+                                        {{-- <p>
                                             Experienced Attorneys Professional Approach
-                                        </p>
+                                        </p> --}}
 
                                         <!-- Read more -->
 
@@ -70,15 +75,15 @@
 
                                         <!-- Figure -->
                                         <figure>
-                                            <img src="images/feature-3.png" alt="image">
+                                            <img src="{{asset('site/assets/images/feature-3.png')}}" alt="image">
                                         </figure>
 
                                         <!-- H3 heading -->
-                                        <h3>Book an Appointment</h3>
+                                        <h3>@lang('general.book')</h3>
 
                                         <!-- Paragraph -->
                                         <p>
-                                            Dedicated to one client at a time
+                                           {{$misc->appointment_date}}
                                         </p>
 
                                         <!-- Read more -->

@@ -1,4 +1,55 @@
+ <!-- Top Bar -->
+ <div class="site-top-bar">
 
+    <!-- Bootstrap -->
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+
+                <!-- Left section -->
+                <div class="site-top-bar-left-section">
+
+                    <!-- Link -->
+                    <a>
+                        <!-- Font awesome icon -->
+                        <i class="fa fa-clock-o"></i>
+                        <!-- Text -->
+                        <span>{{ $misc->appointment_date }}</span>
+                    </a>
+
+                </div>
+                <!-- End Left Section -->
+
+
+                <!-- Right Section -->
+                <div class="site-top-bar-right-section">
+
+                    <!-- Link -->
+                    <a href="{{ $misc->phone }}">
+                        <!-- Icon -->
+                        <i class="fa fa-phone"></i>
+                        <!-- Text -->
+                        <span>{{ $misc->phone }}</span>
+                    </a>
+
+                    <!-- Link -->
+                    <a href="mailto:{{ $misc->mail }}">
+                        <!-- Icon -->
+                        <i class="fa fa-envelope"></i>
+                        <!-- Text -->
+                        <span>{{ $social->mail }}</span>
+                    </a>
+
+                </div>
+                <!-- End Right Section -->
+
+            </div>
+        </div>
+    </div>
+    <!-- End Bootstrap -->
+
+</div>
+<!-- End Top Bar -->
  <!-- Header -->
  <header class="site-header" id="sticky-header">
 
@@ -10,7 +61,7 @@
                 <!-- Logo -->
                 <div class="site-logo">
                     <!-- Link -->
-                    <a href="index.html">
+                    <a href="{{ route('site.home') }}">
                         <!-- Logo Image -->
                         <img src="{{asset('site/assets/images/logo-icon.png')}}" alt="Logo">
                     </a>
@@ -29,47 +80,33 @@
                 <nav class="site-nav">
                     <ul>
                         <!-- Active Item (Use the active class) -->
-                        <li><a href="#">Home
-                            <i class="indicator-desktop fa fa-angle-down"></i> </a> <!-- Desktop sub menu indicator icon -->
-                            <i class="indicator-mobile fa fa-angle-down"></i>       <!-- Mobile view sub menu indicator icon -->
+                        <li><a href="{{ route('site.home') }}">@lang('nav.home') </a> <!-- Desktop sub menu indicator icon -->
+                                  <!-- Mobile view sub menu indicator icon -->
 
                             <!-- Sub menu level 1 -->
-                            <ul class="sub-menu">
-                                <li><a href="#">Sub Menu 1</a></li>
-                                <li><a href="case#">Sub Menu 2</a></li>
-                            </ul>
+
+                        <li class="active"><a href="{{ route('site.about') }}">@lang('nav.about')</a></li>
+                        <li><a href="{{ route('site.service') }}">@lang('nav.service')</a></li>
+
+                        <li><a href="#testimonial">@lang('nav.clients')</a></li>
+                        <li><a href="#blog">@lang('nav.blog')</a></li>
+                        {{-- <li><a href="#team">Team</a></li> --}}
+                        <li><a href="#contact">@lang('nav.contact')</a></li>
+                        <li>
+                        <div class="btn-group">
+
+                            @foreach (Config::get('languages') as $lang => $language)
+                                @if ($lang != App::getLocale())
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="{{ route('lang.switch', $lang) }}">{{$language}}</a>
+                                </div>
+                                @endif
+                            @endforeach
+
+                        </div>
+
+
                         </li>
-                        <li class="active"><a href="#about">About us</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#">Sub Menu
-                            <i class="indicator-desktop fa fa-angle-down"></i> </a> <!-- Desktop sub menu indicator icon -->
-                            <i class="indicator-mobile fa fa-angle-down"></i>       <!-- Mobile view sub menu indicator icon -->
-
-                            <!-- Sub menu level 1 -->
-                            <ul class="sub-menu">
-                                <li><a href="#statistic">Why us</a></li>
-                                <li><a href="#contact">Contact Form</a></li>
-                                <li><a href="#pricing">Pricing Packages</a></li>
-                                <li><a href="#">Sub Menu Level 3
-                                    <i class="indicator-desktop fa fa-angle-right"></i> </a>    <!-- Desktop sub menu indicator icon -->
-                                    <i class="indicator-mobile fa fa-angle-down"></i>    <!-- Mobile view sub menu indicator icon -->
-
-                                    <!-- Sub menu level 2 -->
-                                    <ul class="sub-menu">
-                                        <li><a href="#tabdesign">Tab design</a></li>
-                                        <li><a href="#blog">Latest Blog</a></li>
-                                        <li><a href="#clients">Our Clients</a></li>
-                                        <li><a href="#footer">Subscribe us</a></li>
-                                    </ul>
-
-                                </li>
-                            </ul>
-                        </li>
-                        <li><a href="#testimonial">Testimonials</a></li>
-                        <li><a href="#portfolio">Cases</a></li>
-                        <li><a href="#team">Team</a></li>
-                        <li><a href="#call-to-action">contact us</a></li>
-
                     </ul>
                 </nav>
                 <!-- End Navigation -->

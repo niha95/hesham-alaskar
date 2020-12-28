@@ -38,6 +38,8 @@ class ServiceController extends Controller
     public function store(Request $request)
     {
         $service = Service::create($request->all());
+        if($service && !empty($request->image)) upload_single($request->image,'services',$service);
+
         return redirect()->route('dashboard.services.index')->with('success',trans('general.saved'));
     }
 
@@ -73,7 +75,7 @@ class ServiceController extends Controller
     public function update(Request $request, Service $service)
     {
         $service->update($request->all());
-
+        if($service && !empty($request->image)) upload_single($request->image,'services',$service);
         return redirect()->route('dashboard.services.index')->with('success',trans('general.updated'));
     }
 

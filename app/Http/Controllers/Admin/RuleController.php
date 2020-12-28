@@ -16,6 +16,7 @@ class RuleController extends Controller
      */
     public function index()
     {
+
         $rules = Rule::paginate(20);
         return view('admin.rules.index',['rules' => $rules]);
     }
@@ -39,6 +40,8 @@ class RuleController extends Controller
     public function store(Request $request)
     {
         $rule = rule::create($request->all());
+        if($rule && !empty($request->image)) upload_single($request->image,'rules',$rule);
+
         return redirect()->route('dashboard.rules.index')->with('success',trans('general.saved'));
     }
 
@@ -74,6 +77,7 @@ class RuleController extends Controller
     public function update(Request $request, Rule $rule)
     {
         $rule->update($request->all());
+        if($rule && !empty($request->image)) upload_single($request->image,'rules',$rule);
 
         return redirect()->route('dashboard.rules.index')->with('success',trans('general.updated'));
     }

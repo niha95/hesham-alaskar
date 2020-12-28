@@ -7,6 +7,7 @@ use Astrotomic\Translatable\Translatable;
 use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
 class Slider extends Model
 {
+
     use Translatable;
     protected $guarded = ['image'];
     public $translatedAttributes = ['title','description'];
@@ -14,4 +15,5 @@ class Slider extends Model
     {
         return $this->morphOne(Image::class, 'imageable');
     }
+
 }

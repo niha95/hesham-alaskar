@@ -9,10 +9,14 @@ use Astrotomic\Translatable\Translatable;
 
 class Service extends Model implements TranslatableContract
 {
-    use Translatable;
 
+    use Translatable;
+    protected $guarded = ['image'];
     public $translatedAttributes = ['title', 'description'];
-    protected $fillable = ['icone'];
+    public function image()
+    {
+        return $this->morphOne('App\Models\Image', 'imageable');
+    }
 
 
 }

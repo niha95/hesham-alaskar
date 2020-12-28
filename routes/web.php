@@ -16,12 +16,19 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
+Route::view('test','admin.index');
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/', 'site\SiteController@index');
+
+Route::get('/', ['as' => 'site.home', 'uses' => 'site\PagesController@showHome']);
+Route::get('service', ['as' => 'site.service', 'uses' => 'site\PagesController@showService']);
+Route::get('about', ['as' => 'site.about', 'uses' => 'site\PagesController@showAbout']);
 
 
-Route::view('test','admin.index');
+Route::post('/', ['as' => 'site.home', 'uses' => 'site\PagesController@contact'])->name('contact');
+// Route::view('/','site.home');
+Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => 'LanguageController@switchLang']);
 
-
+//Route::view('service','site.service');
+//Route::get('/', ['as' => 'site.home', 'uses' => 'site/SiteController@index']);

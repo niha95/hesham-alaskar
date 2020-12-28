@@ -28,6 +28,7 @@ class CustomertController extends Controller
      */
     public function create()
     {
+
         return view('admin.customers.create');
     }
 
@@ -40,8 +41,8 @@ class CustomertController extends Controller
     public function store(Request $request)
     {
 
-        Customer::create($request->all());
-
+        $customer=Customer::create($request->all());
+        if($customer && !empty($request->image)) upload_single($request->image,'customers',$customer);
         return redirect()->route('dashboard.customers.index')
             ->with('success', 'customer created successfully.');
     }
@@ -65,7 +66,7 @@ class CustomertController extends Controller
      */
     public function edit(Customer $customer)
     {
-        //
+        return view('admin.customers.edit',['customer' => $customer]);
     }
 
     /**
@@ -77,7 +78,9 @@ class CustomertController extends Controller
      */
     public function update(Request $request, Customer $customer)
     {
-        //
+        $customer->update($request->all());
+        if($customer && !empty($request->image)) upload_single($request->image,'customers',$customer);
+        return redirect()->route('dashboard.customers.index')->with('success',trans('general.updated'));
     }
 
     /**
