@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 28, 2020 at 04:56 PM
--- Server version: 10.4.17-MariaDB
--- PHP Version: 7.4.13
+-- Generation Time: Dec 28, 2020 at 11:30 PM
+-- Server version: 10.4.16-MariaDB
+-- PHP Version: 7.4.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -169,6 +169,15 @@ CREATE TABLE `consults` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `consults`
+--
+
+INSERT INTO `consults` (`id`, `sender_name`, `phone`, `email`, `question`, `created_at`, `updated_at`) VALUES
+(1, 'test', '01122334455', 'test@gmail.com', 'test', '2020-12-28 19:05:10', '2020-12-28 19:05:10'),
+(2, 'test12', '02233445566', 'test@gmail.com', 'test', '2020-12-28 19:06:36', '2020-12-28 19:06:36'),
+(3, 'test12', '02233445566', 'test@gmail.com', 'test', '2020-12-28 19:06:55', '2020-12-28 19:06:55');
+
 -- --------------------------------------------------------
 
 --
@@ -187,9 +196,8 @@ CREATE TABLE `customers` (
 --
 
 INSERT INTO `customers` (`id`, `top`, `created_at`, `updated_at`) VALUES
-(1, 1, '2020-12-27 22:51:11', '2020-12-27 22:51:11'),
-(2, 0, '2020-12-27 22:51:42', '2020-12-27 22:51:42'),
-(3, 1, '2020-12-28 23:41:31', '2020-12-28 23:41:31');
+(4, 1, '2020-12-28 17:45:40', '2020-12-28 17:45:40'),
+(5, 0, '2020-12-28 18:28:38', '2020-12-28 18:28:38');
 
 -- --------------------------------------------------------
 
@@ -210,12 +218,10 @@ CREATE TABLE `customer_translations` (
 --
 
 INSERT INTO `customer_translations` (`id`, `locale`, `name`, `feedback`, `customer_id`) VALUES
-(1, 'ar', 'عميل 1', 'عميل 1', 1),
-(2, 'en', 'client 1', 'client 1', 1),
-(3, 'ar', 'عميل 12', 'عميل 12', 2),
-(4, 'en', 'client 1222', 'client 1222', 2),
-(5, 'ar', 'عميل 122', 'عميل 122', 3),
-(6, 'en', 'client 122', 'client 122', 3);
+(7, 'ar', 'عميل 1', 'من افضل مكاتب المحاماه فى المملكة السعودية', 4),
+(8, 'en', 'Client 1', 'feedback 1', 4),
+(9, 'ar', 'عميل 2', 'من افضل مكاتب المحاماه فى المملكة السعودية', 5),
+(10, 'en', 'client 2', 'feedback 2', 5);
 
 -- --------------------------------------------------------
 
@@ -281,9 +287,19 @@ CREATE TABLE `images` (
 INSERT INTO `images` (`id`, `url`, `imageable_id`, `imageable_type`, `created_at`, `updated_at`) VALUES
 (1, 'Sliders/zzYriNWf2xSqFLT7gyVM8fnZtihQwZ8jQ8Nqg1XM.jpg', 4, 'App\\Models\\Slider', '2020-12-28 23:07:24', '2020-12-28 23:07:24'),
 (2, 'Sliders/Bjs4qau498v2FoZdRTV5oP0Gcytqc9eL5yl7IdKz.jpg', 5, 'App\\Models\\Slider', '2020-12-28 23:17:45', '2020-12-28 23:17:45'),
-(3, 'Sliders/cV6jr6FHt0bWjlBMHAZoUsWE0QrZhgT1iE3Yc1Cd.jpg', 6, 'App\\Models\\Slider', '2020-12-28 23:22:47', '2020-12-28 23:22:47'),
+(3, 'Sliders/kUoTw7aFuKOgValnECMsA7NRrz8wohesNSqgCrbK.jpg', 6, 'App\\Models\\Slider', '2020-12-28 23:22:47', '2020-12-28 15:56:13'),
 (4, 'Sliders/KyI0wUiVi2FX5XicvVHc4cPOSruAqjuFyYPrR9ek.jpg', 7, 'App\\Models\\Slider', '2020-12-28 23:24:52', '2020-12-28 23:24:52'),
-(5, 'Sliders/H3ePYNnIpOZsYtUGVrxmzVauhgPC3uUQ0jNcV4pi.png', 3, 'App\\Models\\Customer', '2020-12-28 23:41:31', '2020-12-28 23:41:31');
+(5, 'customer/H3ePYNnIpOZsYtUGVrxmzVauhgPC3uUQ0jNcV4pi.png', 3, 'App\\Models\\Customer', '2020-12-28 23:41:31', '2020-12-28 23:41:31'),
+(6, 'Sliders/8bUj5e9uveXEbrr2Lzi0qX5t9jbWup6fIgxIsdIq.jpg', 8, 'App\\Models\\Slider', '2020-12-28 16:25:56', '2020-12-28 16:25:56'),
+(7, 'Sliders/LEmgx3CnjR2jQsVgrQmv9PYAaCnwVZCSqLwoqyBa.jpg', 9, 'App\\Models\\Slider', '2020-12-28 16:27:53', '2020-12-28 16:32:15'),
+(8, 'services/U1xWEXRsMLkm8YiKnO1v534HT14ONhnq1GEtBebT.png', 4, 'App\\Models\\Service', '2020-12-28 17:27:01', '2020-12-28 17:27:01'),
+(9, 'services/OQzmkipicSVO4iYqXFJ4QxZD9OmoG9O9bQuFafIK.png', 5, 'App\\Models\\Service', '2020-12-28 17:36:41', '2020-12-28 17:39:19'),
+(10, 'services/uW5H6sZlLtKnjLHmjCUyuTnBJWM2cXihS4tqsHwJ.png', 7, 'App\\Models\\Service', '2020-12-28 17:41:49', '2020-12-28 17:41:49'),
+(11, 'customers/uYnMTgKwrYMoQtfTNIAzVqNa8Ckzb8FEnxlgI8hQ.png', 4, 'App\\Models\\Customer', '2020-12-28 17:45:40', '2020-12-28 17:45:40'),
+(12, 'rules/RzRZEK51WeOPjTZBwZVm127a1hroLIR0nHZwbbiY.jpg', 4, 'App\\Models\\Rule', '2020-12-28 18:03:28', '2020-12-28 18:08:16'),
+(13, 'rules/V4slR7ypWbyChx1b2nDN3OKrjZBDvyjwfYbIZ1bo.jpg', 5, 'App\\Models\\Rule', '2020-12-28 18:09:09', '2020-12-28 18:09:09'),
+(14, 'rules/9QfLXua1G4XYU1F7AngIqEVvuOJyDWEpiTEfiCjh.jpg', 6, 'App\\Models\\Rule', '2020-12-28 18:09:56', '2020-12-28 18:09:56'),
+(15, 'customers/rGJJnTbj6QhGPT1Sa6oUFnETVUQKSXD7abJcN3ja.png', 5, 'App\\Models\\Customer', '2020-12-28 18:28:38', '2020-12-28 18:28:38');
 
 -- --------------------------------------------------------
 
@@ -572,9 +588,9 @@ CREATE TABLE `rules` (
 --
 
 INSERT INTO `rules` (`id`, `created_at`, `updated_at`) VALUES
-(1, '2020-12-28 17:50:28', '2020-12-28 17:50:28'),
-(2, '2020-12-28 17:50:46', '2020-12-28 17:50:46'),
-(3, '2020-12-28 17:51:07', '2020-12-28 17:51:07');
+(4, '2020-12-28 18:03:28', '2020-12-28 18:03:28'),
+(5, '2020-12-28 18:09:08', '2020-12-28 18:09:08'),
+(6, '2020-12-28 18:09:56', '2020-12-28 18:09:56');
 
 -- --------------------------------------------------------
 
@@ -595,12 +611,12 @@ CREATE TABLE `rule_translations` (
 --
 
 INSERT INTO `rule_translations` (`id`, `locale`, `name`, `description`, `rule_id`) VALUES
-(1, 'ar', 'قاعده1', 'قاعده1 قاعده1', 1),
-(2, 'en', 'rule1', 'rule1rule1', 1),
-(3, 'ar', 'قاعدة2', 'قاعدة2قاعدة2', 2),
-(4, 'en', 'rule 2', 'rule 2rule 2', 2),
-(5, 'ar', 'قاعدة3', 'قاعدة3قاعدة3', 3),
-(6, 'en', 'rule 3', 'rule 3rule 3rule 3', 3);
+(7, 'ar', 'لايحة 1', 'لايحة 1', 4),
+(8, 'en', 'rule 1', 'لايحة 1', 4),
+(9, 'ar', 'لايحة 2', 'لايحة 2', 5),
+(10, 'en', 'rule 2', 'rule 2', 5),
+(11, 'ar', 'لايحة 3', 'لايحة 3', 6),
+(12, 'en', 'rule 3', 'rule 3', 6);
 
 -- --------------------------------------------------------
 
@@ -620,9 +636,9 @@ CREATE TABLE `services` (
 --
 
 INSERT INTO `services` (`id`, `icone`, `created_at`, `updated_at`) VALUES
-(1, '..', '2020-12-28 17:20:59', '2020-12-28 17:20:59'),
-(2, '.', '2020-12-28 17:21:29', '2020-12-28 17:21:29'),
-(3, '.', '2020-12-28 17:22:07', '2020-12-28 17:22:07');
+(5, '.', '2020-12-28 17:36:41', '2020-12-28 17:36:41'),
+(6, '..', '2020-12-28 17:40:59', '2020-12-28 17:40:59'),
+(7, '.', '2020-12-28 17:41:48', '2020-12-28 17:41:48');
 
 -- --------------------------------------------------------
 
@@ -659,12 +675,12 @@ CREATE TABLE `service_translations` (
 --
 
 INSERT INTO `service_translations` (`id`, `locale`, `title`, `description`, `service_id`, `created_at`, `updated_at`) VALUES
-(1, 'ar', 'خدمة 1', 'خدمة 1خدمة 1خدمة 1خدمة 1خدمة 1خدمة 1', 1, NULL, NULL),
-(2, 'en', 'Service1', 'Service1Service1Service1Service1Service1Service1', 1, NULL, NULL),
-(3, 'ar', 'خدمة 2', 'خدمة 2خدمة 2خدمة 2خدمة 2خدمة 2خدمة 2', 2, NULL, NULL),
-(4, 'en', 'Service2', 'Service2Service2Service2Service2Service2Service2', 2, NULL, NULL),
-(5, 'ar', 'خدمة 3', 'خدمة 3خدمة 3خدمة 3خدمة 3', 3, NULL, NULL),
-(6, 'en', 'Service3', 'Service3Service3Service3Service3Service3', 3, NULL, NULL);
+(9, 'ar', 'العقود والانظمة التجارية', 'التفاوض وصياغة العقود التجارية الداخليه والدولية ومراجعه تلك العقود بما يتفق مع الأنظمة واللوائح المعمول بها. • تقديم المشورة القانونية المتعلقة بكافة الصفقات والتعاقدات التجارية سواء المحليه او الدوليه كما نقوم بتمثيل عملائنا خارجيا وحضور الاجتماعات المرتبطه بتلك الاعمال • حل النزاعات ذات الطابع التجاري وفق أسس ومعايير مهنية موثوقة.', 5, NULL, NULL),
+(10, 'en', 'Service1', 'Service 1', 5, NULL, NULL),
+(11, 'ar', 'الدراسات القانونية للشركات والهيئات الحكومية', '• إعداد وصياغة الدراسات والأنظمة واللوائح ووضع الخطط والاستراتيجيات القانونيه لمتطلبات المنظمه• وضع الأسس القانونيه اللازمة لقيام الإدارات الخاصه بالحوكمة والمخاطر والالتزام ووضع اللوائح الخاصه بها من خلال الخبره التي نمتاز بها والنجاح الذي لحق بالعديد من الشركات المساهمه العامه التي أسسنا بها تلك الإدارات واللجان المتعلقه بها وفق أعلى معايير الحوكمة• دراسة أفضل التجارب الدولية ومقارنتها مع البيئة المحلية', 6, NULL, NULL),
+(12, 'en', 'Service2', 'service2', 6, NULL, NULL),
+(13, 'ar', 'الثروات العائلية', 'اعادة هيكلة الأملاك العائلية .من خلال طرح النماذج التي تتفق مع الصيغ المعاصره والتي تضمن استمراريه الشركات العائليه لعده عقود\r\n• صياغة وإعداد المواثيق العائلية بما يضمن توثيق الروابط الأسرية بين الأجيال المتعاقبة والمحافظة على ثروة العائلة\r\n• صياغة الأنظمة الداخلية للشركات العائلية .بما يتناسب مع واقع تلك الشركات والظروف المرتبطه بها لضمان استمرارها من خلال الخبرة التي نمتاز بها بهذا الشأن في فهم الإشكاليات الحاليه والمستقبيله المرتبطه بالاستثمارات العائليه ووضع افضل الطرق لتفادي تلك الإشكاليات المحتمله', 7, NULL, NULL),
+(14, 'en', 'Service3', 'Service3', 7, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -711,8 +727,8 @@ CREATE TABLE `sliders` (
 --
 
 INSERT INTO `sliders` (`id`, `created_at`, `updated_at`) VALUES
-(6, '2020-12-28 23:22:47', '2020-12-28 23:22:47'),
-(7, '2020-12-28 23:24:52', '2020-12-28 23:24:52');
+(8, '2020-12-28 16:25:55', '2020-12-28 16:25:55'),
+(9, '2020-12-28 16:27:52', '2020-12-28 16:27:52');
 
 -- --------------------------------------------------------
 
@@ -735,10 +751,10 @@ CREATE TABLE `slider_translations` (
 --
 
 INSERT INTO `slider_translations` (`id`, `title`, `description`, `locale`, `slider_id`, `created_at`, `updated_at`) VALUES
-(11, 'مجموعة هشام عسكر للمحاماه', 'مجموعة هشام عسكر للمحاماه', 'ar', 6, NULL, NULL),
-(12, 'مجموعة هشام عسكر للمحاماه', 'مجموعة هشام عسكر للمحاماه', 'en', 6, NULL, NULL),
-(13, 'مجموعة هشام عسكر للمحاماه', 'مجموعة هشام عسكر للمحاماه', 'ar', 7, NULL, NULL),
-(14, 'مجموعة هشام عسكر للمحاماه', 'مجموعة هشام عسكر للمحاماه', 'en', 7, NULL, NULL);
+(15, 'مجموعة هشام عسكر للمحاماه', 'جميع الخدمات القانونية', 'ar', 8, NULL, NULL),
+(16, 'slider1', 'slider1', 'en', 8, NULL, NULL),
+(17, 'مجموعة هشام عسكر للمحاماه', 'للمحاماه و الاستشارات القانونية', 'ar', 9, NULL, NULL),
+(18, 'slider 1', 'slider 1', 'en', 9, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1159,19 +1175,19 @@ ALTER TABLE `blog_translations`
 -- AUTO_INCREMENT for table `consults`
 --
 ALTER TABLE `consults`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `customer_translations`
 --
 ALTER TABLE `customer_translations`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -1195,7 +1211,7 @@ ALTER TABLE `gallery_categories`
 -- AUTO_INCREMENT for table `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `lawers`
@@ -1291,19 +1307,19 @@ ALTER TABLE `project_translations`
 -- AUTO_INCREMENT for table `rules`
 --
 ALTER TABLE `rules`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `rule_translations`
 --
 ALTER TABLE `rule_translations`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `services`
 --
 ALTER TABLE `services`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `service_categories`
@@ -1315,7 +1331,7 @@ ALTER TABLE `service_categories`
 -- AUTO_INCREMENT for table `service_translations`
 --
 ALTER TABLE `service_translations`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `settings`
@@ -1327,13 +1343,13 @@ ALTER TABLE `settings`
 -- AUTO_INCREMENT for table `sliders`
 --
 ALTER TABLE `sliders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `slider_translations`
 --
 ALTER TABLE `slider_translations`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `socials`
